@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: lamoda-monitor
+
+  datasource:
+    url: ""
+    username: ""
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: create
