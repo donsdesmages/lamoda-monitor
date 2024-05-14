@@ -10,3 +10,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+
+monitor:
+  base-url: "https://www.lamoda.ru/api/v1/product/get"

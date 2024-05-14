@@ -11,8 +11,10 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
-
     private final ProductRepository repository;
+
+    private final MonitorService service;
+
     @Override
     public void createProduct(String sku, Integer price) {
         ProductEntity productEntity = new ProductEntity();
@@ -20,6 +22,8 @@ public class ProductServiceImpl implements ProductService {
         productEntity.setSku(sku);
 
         repository.save(productEntity);
+
+        service.monitorService(sku);
     }
 
     @Override
