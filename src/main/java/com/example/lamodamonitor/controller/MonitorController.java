@@ -1,5 +1,6 @@
 package com.example.lamodamonitor.controller;
 
+import com.example.lamodamonitor.model.MonitorResponseDto;
 import com.example.lamodamonitor.service.MonitorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,7 @@ public class MonitorController {
     private final MonitorService monitorService;
 
     @GetMapping
-    public void getProductBySku(String sku) {
-        monitorService.monitorService(sku);
+    public MonitorResponseDto getProductBySku(String sku) {
+        return monitorService.monitorService(sku);
     }
 }

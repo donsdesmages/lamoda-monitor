@@ -1,5 +1,6 @@
 package com.example.lamodamonitor.client;
 
+import com.example.lamodamonitor.model.MonitorResponseDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,5 +9,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface MonitorClient {
 
     @GetMapping
-    MonitorStateResponse getProductBySku(@RequestParam String sku);
+    MonitorResponseDto getProductBySku(@RequestParam String sku);
 }

@@ -1,8 +1,9 @@
-package com.example.lamodamonitor.service;
+package com.example.lamodamonitor.service.impl;
 
 import com.example.lamodamonitor.entity.ProductEntity;
+import com.example.lamodamonitor.model.MonitorResponseDto;
 import com.example.lamodamonitor.repository.ProductRepository;
-import com.example.lamodamonitor.service.impl.ProductService;
+import com.example.lamodamonitor.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +14,17 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository repository;
 
-    private final MonitorService service;
+    private final MonitorServiceImpl service;
 
     @Override
-    public void createProduct(String sku, Integer price) {
+    public MonitorResponseDto createProduct(String sku, Long price) {
         ProductEntity productEntity = new ProductEntity();
         productEntity.setPrice(price);
         productEntity.setSku(sku);
 
         repository.save(productEntity);
 
-        service.monitorService(sku);
+        return service.monitorService(sku);
     }
 
     @Override

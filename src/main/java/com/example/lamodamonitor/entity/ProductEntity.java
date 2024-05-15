@@ -19,5 +19,5 @@ public class ProductEntity {
     private String sku;
 
     @Column(name = "price")
-    private Integer price;
+    private Long price;
 }
