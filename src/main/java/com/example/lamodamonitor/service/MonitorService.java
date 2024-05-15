@@ -4,4 +4,5 @@ import com.example.lamodamonitor.model.MonitorResponseDto;
 
 public interface MonitorService {
     MonitorResponseDto monitorService(String sku);
+
 }
