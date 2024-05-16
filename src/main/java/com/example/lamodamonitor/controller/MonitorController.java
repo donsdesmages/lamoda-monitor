@@ -16,6 +16,6 @@ public class MonitorController {
 
     @GetMapping
     public MonitorResponseDto getProductBySku(String sku) {
-        return monitorService.monitorService(sku);
+        return monitorService.getProductBySku(sku);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.lamodamonitor.service;
 
+import com.example.lamodamonitor.model.MonitorResponseDto;
+
 public interface PriceCheckService {
 
-    Boolean checkPrice(String sku, Long price);
+    boolean checkPrice(MonitorResponseDto responseDto);
 }
