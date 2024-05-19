@@ -16,7 +16,9 @@ public class ProductServiceImpl implements ProductService {
     private final MonitorServiceImpl monitorService;
 
     @Override
-    public void createProduct(String sku, Long price) {
+    public void createProduct(String sku,
+                              Long price,
+                              String mail) {
         ProductEntity productEntity = new ProductEntity();
 
         productEntity.setPrice(price);
@@ -24,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 
         repository.save(productEntity);
 
-        monitorService.monitor(sku);
+        monitorService.monitor(sku, mail);
     }
 
     @Override

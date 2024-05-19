@@ -17,8 +17,8 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestParam String sku, @RequestParam Long price) {
-        productService.createProduct(sku, price);
+    public void create(@RequestParam String sku, @RequestParam Long price, @RequestParam String mail) {
+        productService.createProduct(sku, price, mail);
     }
 
     @GetMapping

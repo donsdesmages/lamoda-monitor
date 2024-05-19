@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: lamoda-monitor
@@ -11,5 +14,15 @@ spring:
     hibernate:
       ddl-auto: update
 
+  mail:
+    host: "smtp.gmail.com"
+    port: "465"
+    ssl:
+      enable: "true"
+    auth: "true"
+
 monitor:
   base-url: "https://www.lamoda.ru/api/v1/product/get"
+
+
+

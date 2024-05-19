@@ -1,6 +1,7 @@
 package com.example.lamodamonitor.service.impl;
 
 import com.example.lamodamonitor.client.MonitorClient;
+import com.example.lamodamonitor.mail.DispatchService;
 import com.example.lamodamonitor.model.MonitorResponseDto;
 import com.example.lamodamonitor.service.MonitorService;
 import com.example.lamodamonitor.service.PriceCheckService;
@@ -17,17 +18,19 @@ public class MonitorServiceImpl implements MonitorService {
 
     private final PriceCheckService priceCheckService;
 
+    private final DispatchService dispatchService;
+
+
     @Override
-    public void monitor(String sku) {
+    public void monitor(String sku, String mail) {
         new Thread(() -> {
             while (true) {
                 MonitorResponseDto response = monitorClient.getProductBySku(sku);
 
-                log.info("response: " + response.title(), response );
                 boolean resultCheckPrice = priceCheckService.checkPrice(response);
 
                 if (resultCheckPrice) {
-                    // send message
+                    dispatchService.sendMessage(mail, response);
                     break;
                 }
 

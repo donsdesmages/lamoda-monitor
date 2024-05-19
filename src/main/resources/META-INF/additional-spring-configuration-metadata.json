@@ -1,0 +1,33 @@
+{
+  "properties": [
+    {
+      "name": "spring.application.mail.auth",
+      "type": "java.lang.String",
+      "description": "Description for spring.application.mail.auth."
+    },
+    {
+      "name": "spring.application.mail.host",
+      "type": "java.lang.String",
+      "description": "Description for spring.application.mail.host."
+    },
+    {
+      "name": "spring.application.mail.port",
+      "type": "java.lang.String",
+      "description": "Description for spring.application.mail.port."
+    },
+    {
+      "name": "spring.application.mail.ssl.enable",
+      "type": "java.lang.String",
+      "description": "Description for spring.application.mail.ssl.enable."
+    },
+    {
+      "name": "spring.mail.ssl.enable",
+      "type": "java.lang.String",
+      "description": "Description for spring.mail.ssl.enable."
+    },
+    {
+      "name": "spring.mail.auth",
+      "type": "java.lang.String",
+      "description": "Description for spring.mail.auth."
+    }
+  ] }
