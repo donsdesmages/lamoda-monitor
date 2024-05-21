@@ -24,5 +24,13 @@ spring:
 monitor:
   base-url: "https://www.lamoda.ru/api/v1/product/get"
 
+eamil:
+  user-name-email: ${USER_NAME_EMAIL}
+  user-password-email: ${USER_PASSWORD_EMAIL}
+
+
+
+
+
 
 

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 @Service
 @RequiredArgsConstructor
@@ -21,15 +22,14 @@ public class PriceCheckServiceImpl implements PriceCheckService {
             dataResponse.put(responseDto.sku(), responseDto.price());
         }
 
-        if (dataResponse.get(responseDto.sku()) > responseDto.price()) {
-            Long productSku = repository.findPriceBySku(responseDto.sku());
-            if (productSku > responseDto.price()) {
-                return true;
-            }
-            else {
-                dataResponse.put(responseDto.sku(), responseDto.price());
-            }
+        List<Long> productSku = repository.findPriceBySku(responseDto.sku());
+        if (responseDto.price() < productSku.getLast()) {
+            return true;
         }
-        return false;
+        else {
+            dataResponse.put(responseDto.sku(), responseDto.price());
+            return false;
+        }
+
     }
 }

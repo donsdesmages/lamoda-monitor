@@ -27,10 +27,12 @@ public class MonitorServiceImpl implements MonitorService {
             while (true) {
                 MonitorResponseDto response = monitorClient.getProductBySku(sku);
 
+                log.info(response.title() + " lamoda response");
                 boolean resultCheckPrice = priceCheckService.checkPrice(response);
 
                 if (resultCheckPrice) {
                     dispatchService.sendMessage(mail, response);
+                    log.info(response.best_category() + "lamoda response");
                     break;
                 }
 
