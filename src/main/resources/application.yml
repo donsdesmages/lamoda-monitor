@@ -7,8 +7,8 @@ spring:
 
   datasource:
     url: "jdbc:postgresql://localhost:5433/product"
-    username: "postgres"
-    password: "postgres"
+    username: ${USER_NAME}
+    password: ${PASSWORD}
 
   jpa:
     hibernate:
@@ -24,7 +24,7 @@ spring:
 monitor:
   base-url: "https://www.lamoda.ru/api/v1/product/get"
 
-eamil:
+email:
   user-name-email: ${USER_NAME_EMAIL}
   user-password-email: ${USER_PASSWORD_EMAIL}
 
