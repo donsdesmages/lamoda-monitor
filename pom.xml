@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.web</groupId>
-	<artifactId>converter</artifactId>
+	<artifactId>lamoda-monitor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>lamoda-monitor</name>
 	<description>Service for monitoring state products</description>
@@ -51,11 +51,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>6.0.16.Final</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-mail</artifactId>
 	    </dependency>
@@ -90,7 +85,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- TESTING -->
+		<!--&lt;!&ndash; TESTING &ndash;&gt;
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
@@ -102,7 +97,7 @@
 			<artifactId>mockito-core</artifactId>
 			<version>5.7.0</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 
 	</dependencies>
 

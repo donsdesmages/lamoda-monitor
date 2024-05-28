@@ -1,4 +1,4 @@
-package com.example.lamodamonitor.mail;
+package com.example.lamodamonitor.mail.config;
 
 import com.example.lamodamonitor.mail.config.MailCredential;
 import com.example.lamodamonitor.mail.config.MailCredentialProperties;
@@ -14,7 +14,7 @@ import java.util.Properties;
 @Component
 @Configuration
 @RequiredArgsConstructor
-public class ConfigurationMail {
+public class MailConfiguration {
 
     private final MailCredential mailCredentiaL;
 

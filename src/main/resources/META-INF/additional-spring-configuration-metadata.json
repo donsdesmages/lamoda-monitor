@@ -29,5 +29,15 @@
       "name": "spring.mail.auth",
       "type": "java.lang.String",
       "description": "Description for spring.mail.auth."
+    },
+    {
+      "name": "eamil.user-name-email",
+      "type": "java.lang.String",
+      "description": "Description for eamil.user-name-email."
+    },
+    {
+      "name": "eamil.user-password-email",
+      "type": "java.lang.String",
+      "description": "Description for eamil.user-password-email."
     }
   ] }

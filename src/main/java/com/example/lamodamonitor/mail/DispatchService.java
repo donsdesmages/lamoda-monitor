@@ -1,6 +1,8 @@
 package com.example.lamodamonitor.mail;
 
+import com.example.lamodamonitor.mail.config.MailConfiguration;
 import com.example.lamodamonitor.mail.config.MailCredentialProperties;
+import com.example.lamodamonitor.mail.config.TemplateConfiguration;
 import com.example.lamodamonitor.model.MonitorResponseDto;
 import freemarker.cache.FileTemplateLoader;
 import freemarker.template.Configuration;
@@ -24,10 +26,9 @@ import static com.example.lamodamonitor.util.ConstantUrl.URL_HTML;
 @Service
 @RequiredArgsConstructor
 public class DispatchService {
+    private final TemplateConfiguration templateConfiguration;
 
-    private final ConfigurationMail configurationMail;
-
-    private final Configuration configuration;
+    private final MailConfiguration configurationMail;
 
     private final MailCredentialProperties mailCredentialProperties;
 
@@ -37,32 +38,13 @@ public class DispatchService {
             session.setDebug(true);
 
             MimeMessage message = new MimeMessage(session);
-
             message.setFrom(new InternetAddress(mailCredentialProperties.userNameEmail()));
             message.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(mail));
             message.setSubject("Тема письма:");
 
-            FileTemplateLoader templateLoader = new FileTemplateLoader(new File(URL_HTML));
+            StringWriter writer = templateConfiguration.template(responseDto);
 
-            configuration.setTemplateLoader(templateLoader);
-
-            Template template = configuration.getTemplate("response.ftl");
-
-            log.info("lamoda-response: " + responseDto.price());
-
-            Map<String, Object> lamodaResponse = new HashMap<>();
-            lamodaResponse.put("title", responseDto.title());
-            lamodaResponse.put("sku" , responseDto.sku());
-            lamodaResponse.put("price", responseDto.price());
-            lamodaResponse.put("sizes", responseDto.sizes().size());
-            lamodaResponse.put("seo_title", responseDto.seo_title());
-
-            StringWriter writer = new StringWriter();
-
-            template.process(lamodaResponse, writer);
-
-            message.setContent("Data about of product: "
-                    + writer.toString(), "text/html");
+            message.setContent("Data about of product: " + writer.toString(), "text/html");
 
             Transport.send(message);
 
