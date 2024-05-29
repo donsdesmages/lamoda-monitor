@@ -6,7 +6,7 @@ spring:
     name: lamoda-monitor
 
   datasource:
-    url: "jdbc:postgresql://localhost:5433/product"
+    url: "jdbc:postgresql://postgresql:5433/product"
     username: ${USER_NAME}
     password: ${PASSWORD}
 

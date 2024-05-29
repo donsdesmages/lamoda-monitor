@@ -39,5 +39,10 @@
       "name": "eamil.user-password-email",
       "type": "java.lang.String",
       "description": "Description for eamil.user-password-email."
+    },
+    {
+      "name": "spring.datasource.host",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.host."
     }
   ] }
