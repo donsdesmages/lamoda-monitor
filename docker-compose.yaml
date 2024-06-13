@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  app:
+    image: sha256:5d64e17d6e76d6137aba7fc68d2d6b34c5b4e87d05388c88e9d788fac0cdfad4
+    container_name: monitor-service
+    depends_on:
+      - postgres
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/product
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+  postgres:
+    image: postgres
+    container_name: 'java-postgres'
+    ports:
+      - 5430:5432
+    environment:
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+      - 'POSTGRES_DB=product'

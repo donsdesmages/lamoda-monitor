@@ -1,12 +1,36 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: lamoda-monitor
 
   datasource:
-    url: ""
-    username: ""
-    password: ""
+    url: "jdbc:postgresql://postgresql:5433/product"
+    username: ${USER_NAME}
+    password: ${PASSWORD}
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+
+  mail:
+    host: "smtp.gmail.com"
+    port: "465"
+    ssl:
+      enable: "true"
+    auth: "true"
+
+monitor:
+  base-url: "https://www.lamoda.ru/api/v1/product/get"
+
+email:
+  user-name-email: ${USER_NAME_EMAIL}
+  user-password-email: ${USER_PASSWORD_EMAIL}
+
+
+
+
+
+
+
